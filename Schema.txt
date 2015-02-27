@@ -1,0 +1,37 @@
+[dbo].[ContentAttachmentContent]
+
+ALTER TABLE [dbo].[ContentAttachmentContent] ADD CONSTRAINT [PK_ContentAttachmentContent_1] PRIMARY KEY CLUSTERED  ([RecordID])
+GO
+
+--CREATE NONCLUSTERED INDEX [NonClusteredIndex-20150225-103452] ON [dbo].[ContentAttachmentContent] ([RecordID])
+--GO
+
+[dbo].[ContentCategory]
+
+ALTER TABLE [dbo].[ContentCategory] ADD CONSTRAINT [PK_ContentCategory] PRIMARY KEY CLUSTERED  ([ContCategoryID])
+GO
+--CREATE NONCLUSTERED INDEX [NonClusteredIndex-20150225-103545] ON [dbo].[ContentCategory] ([ContCategoryID], [ContCategoryID_Parent])
+--GO
+
+
+[dbo].[ContentCategoryEmployee]
+
+ALTER TABLE [dbo].[ContentCategoryEmployee] ADD CONSTRAINT [PK_ContentCategoryEmployee] PRIMARY KEY CLUSTERED  ([ContCategoryID], [CompDivCode], [CountryISO], [EmployeeCode])
+GO
+--CREATE NONCLUSTERED INDEX [NonClusteredIndex-20150225-103636] ON [dbo].[ContentCategoryEmployee] ([ContCategoryID])
+--GO
+--CREATE NONCLUSTERED INDEX [NonClusteredIndex-20150225-103650] ON [dbo].[ContentCategoryEmployee] ([ContTypeID])
+--GO
+
+[dbo].[ContentCommentRead]
+
+--CREATE CLUSTERED INDEX [ClusteredIndex-20150225-103816] ON [dbo].[ContentCommentRead] ([CommentID])
+--GO
+--CREATE NONCLUSTERED INDEX [NonClusteredIndex-20150225-103830] ON [dbo].[ContentCommentRead] ([ContentID])
+--GO
+
+[dbo].[ContentExtentedField]
+CREATE NONCLUSTERED INDEX [NIDX_CExtentedField_Cont] ON [dbo].[ContentExtentedField] ([ContID])
+GO
+--ALTER TABLE [dbo].[ContentExtentedField] ADD CONSTRAINT [PK_ContentExtentedField] PRIMARY KEY CLUSTERED  ([ContID])
+--GO
